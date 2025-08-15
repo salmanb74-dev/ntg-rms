@@ -1,491 +1,491 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RMS MVP - Main Landing Page</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .wireframe {
-            max-width: 1200px;
-            margin: 20px auto;
-            background: white;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .wireframe-label {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: #e74c3c;
-            color: white;
-            padding: 4px 8px;
-            font-size: 10px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-        
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .user-info {
-            background: #34495e;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: white;
-        }
-        
-        .logout-btn {
-            background: #e74c3c;
-            border: none;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        
-        .logout-btn:hover {
-            background: #c0392b;
-        }
-        
-        .main-content {
-            padding: 30px;
-        }
-        
-        .screen-section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #3498db;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-icon {
-            width: 24px;
-            height: 24px;
-            background: #3498db;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
-        }
-        
-        .screen-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .screen-card {
-            background: #f8f9fa;
-            border: 2px dashed #bdc3c7;
-            padding: 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .screen-card:hover {
-            background: #e3f2fd;
-            border-color: #2196f3;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .card-title {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #2c3e50;
-        }
-        
-        .card-description {
-            font-size: 13px;
-            color: #7f8c8d;
-            line-height: 1.4;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            background: #95a5a6;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 10px;
-            margin-top: 8px;
-            font-weight: bold;
-        }
-        
-		.status-badge.created {
-			background: #1abc9c;
-		}        
-		
-        .status-badge.pending {
-            background: #f39c12;
-        }
-        
-        .footer {
-            background: #ecf0f1;
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #7f8c8d;
-            border-top: 1px solid #bdc3c7;
-        }
-        
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 10px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .stat-label {
-            font-size: 12px;
-            color: #7f8c8d;
-        }
-        
-        @media (max-width: 768px) {
-            .screen-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .user-info {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            
-            .stats-bar {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="wireframe">
-        <div class="wireframe-label">WIREFRAME</div>
-        
-        <header class="header">
-            <h1>Restaurant Management System</h1>
-            <p>MVP Wireframe Navigation - All Screens</p>
-        </header>
-        
-        <div class="user-info">
-            <div>
-                <strong>Admin:</strong> John Manager | <strong>Restaurant:</strong> Bella Vista | <strong>Role:</strong> Administrator
-            </div>
-            <button class="logout-btn">Logout</button>
-        </div>
-        
-        <main class="main-content">
-            <!-- Authentication & User Management -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">🔐</div>
-                    Authentication & User Management
-                </h2>
-                <div class="screen-grid">
-					<a href="auth/login-screen.html" class="screen-card">
-                        <div class="card-title">1. Login Screen</div>
-                        <div class="card-description">Staff authentication with role selection</div>
-                        <span class="status-badge created">Created</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('User Dashboard')">
-                        <div class="card-title">2. User Dashboard</div>
-                        <div class="card-description">Different views for Admin/Manager/Staff roles</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- POS Core Functionality -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">💰</div>
-                    POS Core Functionality
-                </h2>
-                <div class="screen-grid">
-                    <a href="pos/pos-order-screen.html" class="screen-card">
-                        <div class="card-title">3. POS Order Screen</div>
-                        <div class="card-description">Main order taking interface</div>
-                        <span class="status-badge created">Created</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Payment Processing Screen')">
-                        <div class="card-title">4. Payment Processing Screen</div>
-                        <div class="card-description">Cash, card, and payment gateway integration</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Receipt Preview/Print Screen')">
-                        <div class="card-title">5. Receipt Preview/Print Screen</div>
-                        <div class="card-description">Receipt customization and printing</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- Menu Management -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">🍽️</div>
-                    Menu Management
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('Menu Management Dashboard')">
-                        <div class="card-title">6. Menu Management Dashboard</div>
-                        <div class="card-description">Overview of all menus</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Menu Item Creation/Edit Form')">
-                        <div class="card-title">7. Menu Item Creation/Edit Form</div>
-                        <div class="card-description">Add/edit individual items</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Menu Category Management')">
-                        <div class="card-title">8. Menu Category Management</div>
-                        <div class="card-description">Organize menu categories</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Modifier Management Screen')">
-                        <div class="card-title">9. Modifier Management Screen</div>
-                        <div class="card-description">Setup modifiers (extra cheese, no onions)</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Multiple Menu Setup')">
-                        <div class="card-title">10. Multiple Menu Setup</div>
-                        <div class="card-description">Breakfast/lunch/dinner menu configuration</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- Table Management -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">🪑</div>
-                    Table Management
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('Floor Plan View')">
-                        <div class="card-title">11. Floor Plan View</div>
-                        <div class="card-description">Visual table layout and status</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Table Status Management')">
-                        <div class="card-title">12. Table Status Management</div>
-                        <div class="card-description">Occupied/available/reserved status</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Table Assignment Screen')">
-                        <div class="card-title">13. Table Assignment Screen</div>
-                        <div class="card-description">Assign servers to tables</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- Sales Reporting -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">📊</div>
-                    Sales Reporting
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('Sales Reports Dashboard')">
-                        <div class="card-title">14. Sales Reports Dashboard</div>
-                        <div class="card-description">Daily/weekly sales overview</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Report Generation Screen')">
-                        <div class="card-title">15. Report Generation Screen</div>
-                        <div class="card-description">Generate and export reports</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Sales Analytics View')">
-                        <div class="card-title">16. Sales Analytics View</div>
-                        <div class="card-description">Basic sales metrics and charts</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- Customer Management -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">👥</div>
-                    Customer Management
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('Customer Profile Creation')">
-                        <div class="card-title">17. Customer Profile Creation</div>
-                        <div class="card-description">Add new customer</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Customer Profile View')">
-                        <div class="card-title">18. Customer Profile View</div>
-                        <div class="card-description">View customer details and order history</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Customer Search/List')">
-                        <div class="card-title">19. Customer Search/List</div>
-                        <div class="card-description">Browse all customers</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- System Settings -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">⚙️</div>
-                    System Settings
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('General Settings')">
-                        <div class="card-title">20. General Settings</div>
-                        <div class="card-description">System configuration</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Tax Configuration')">
-                        <div class="card-title">21. Tax Configuration</div>
-                        <div class="card-description">Setup tax rates and calculations</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('User Role Management')">
-                        <div class="card-title">22. User Role Management</div>
-                        <div class="card-description">Manage staff permissions</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Backup Settings')">
-                        <div class="card-title">23. Backup Settings</div>
-                        <div class="card-description">Data backup configuration</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-            
-            <!-- Mobile/Responsive Views -->
-            <section class="screen-section">
-                <h2 class="section-title">
-                    <div class="section-icon">📱</div>
-                    Mobile/Responsive Views
-                </h2>
-                <div class="screen-grid">
-                    <a href="#" class="screen-card" onclick="showScreen('Mobile POS Interface')">
-                        <div class="card-title">24. Mobile POS Interface</div>
-                        <div class="card-description">Tablet-optimized order taking</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                    <a href="#" class="screen-card" onclick="showScreen('Mobile Payment Screen')">
-                        <div class="card-title">25. Mobile Payment Screen</div>
-                        <div class="card-description">Touch-friendly payment processing</div>
-                        <span class="status-badge pending">Pending</span>
-                    </a>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="footer">
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <div class="stat-number">25</div>
-                    <div class="stat-label">Total Screens</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Created</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">23</div>
-                    <div class="stat-label">Pending</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">8%</div>
-                    <div class="stat-label">Complete</div>
-                </div>
-            </div>
-            <p>Restaurant Management System MVP - Wireframe Collection | Click any screen to view details</p>
-        </footer>
-    </div>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RMS MVP - Main Landing Page</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: Arial, sans-serif;
+				background: #f5f7fa;
+				color: #333;
+				line-height: 1.6;
+			}
+			
+			.wireframe {
+				max-width: 1200px;
+				margin: 20px auto;
+				background: white;
+				border: 2px solid #ddd;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+			}
+			
+			.header {
+				background: #2c3e50;
+				color: white;
+				padding: 20px;
+				text-align: center;
+				position: relative;
+			}
+			
+			.wireframe-label {
+				position: absolute;
+				top: 10px;
+				right: 15px;
+				background: #e74c3c;
+				color: white;
+				padding: 4px 8px;
+				font-size: 10px;
+				border-radius: 3px;
+				font-weight: bold;
+			}
+			
+			.header h1 {
+				font-size: 28px;
+				margin-bottom: 5px;
+			}
+			
+			.header p {
+				font-size: 14px;
+				opacity: 0.9;
+			}
+			
+			.user-info {
+				background: #34495e;
+				padding: 10px 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 14px;
+				color: white;
+			}
+			
+			.logout-btn {
+				background: #e74c3c;
+				border: none;
+				color: white;
+				padding: 5px 12px;
+				border-radius: 3px;
+				cursor: pointer;
+				font-size: 12px;
+			}
+			
+			.logout-btn:hover {
+				background: #c0392b;
+			}
+			
+			.main-content {
+				padding: 30px;
+			}
+			
+			.screen-section {
+				margin-bottom: 40px;
+			}
+			
+			.section-title {
+				font-size: 20px;
+				font-weight: bold;
+				color: #2c3e50;
+				margin-bottom: 15px;
+				padding-bottom: 8px;
+				border-bottom: 2px solid #3498db;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+			
+			.section-icon {
+				width: 24px;
+				height: 24px;
+				background: #3498db;
+				border-radius: 4px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 14px;
+			}
+			
+			.screen-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 15px;
+				margin-top: 20px;
+			}
+			
+			.screen-card {
+				background: #f8f9fa;
+				border: 2px dashed #bdc3c7;
+				padding: 20px;
+				border-radius: 6px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+			
+			.screen-card:hover {
+				background: #e3f2fd;
+				border-color: #2196f3;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			}
+			
+			.card-title {
+				font-weight: bold;
+				font-size: 16px;
+				margin-bottom: 8px;
+				color: #2c3e50;
+			}
+			
+			.card-description {
+				font-size: 13px;
+				color: #7f8c8d;
+				line-height: 1.4;
+			}
+			
+			.status-badge {
+				display: inline-block;
+				background: #95a5a6;
+				color: white;
+				padding: 2px 8px;
+				border-radius: 10px;
+				font-size: 10px;
+				margin-top: 8px;
+				font-weight: bold;
+			}
+			
+			.status-badge.created {
+				background: #1abc9c;
+			}        
+			
+			.status-badge.pending {
+				background: #f39c12;
+			}
+			
+			.footer {
+				background: #ecf0f1;
+				padding: 20px;
+				text-align: center;
+				font-size: 14px;
+				color: #7f8c8d;
+				border-top: 1px solid #bdc3c7;
+			}
+			
+			.stats-bar {
+				display: flex;
+				justify-content: center;
+				gap: 30px;
+				margin-bottom: 10px;
+			}
+			
+			.stat-item {
+				text-align: center;
+			}
+			
+			.stat-number {
+				font-size: 18px;
+				font-weight: bold;
+				color: #2c3e50;
+			}
+			
+			.stat-label {
+				font-size: 12px;
+				color: #7f8c8d;
+			}
+			
+			@media (max-width: 768px) {
+				.screen-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				.user-info {
+					flex-direction: column;
+					gap: 10px;
+					text-align: center;
+				}
+				
+				.stats-bar {
+					flex-direction: column;
+					gap: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wireframe">
+			<div class="wireframe-label">WIREFRAME</div>
+			
+			<header class="header">
+				<h1>Restaurant Management System</h1>
+				<p>MVP Wireframe Navigation - All Screens</p>
+			</header>
+			
+			<div class="user-info">
+				<div>
+					<strong>Admin:</strong> John Manager | <strong>Restaurant:</strong> Bella Vista | <strong>Role:</strong> Administrator
+				</div>
+				<button class="logout-btn">Logout</button>
+			</div>
+			
+			<main class="main-content">
+				<!-- Authentication & User Management -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">🔐</div>
+						Authentication & User Management
+					</h2>
+					<div class="screen-grid">
+						<a href="auth/login-screen.html" class="screen-card">
+							<div class="card-title">1. Login Screen</div>
+							<div class="card-description">Staff authentication with role selection</div>
+							<span class="status-badge created">Created</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('User Dashboard')">
+							<div class="card-title">2. User Dashboard</div>
+							<div class="card-description">Different views for Admin/Manager/Staff roles</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- POS Core Functionality -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">💰</div>
+						POS Core Functionality
+					</h2>
+					<div class="screen-grid">
+						<a href="pos/pos-order-screen.html" class="screen-card">
+							<div class="card-title">3. POS Order Screen</div>
+							<div class="card-description">Main order taking interface</div>
+							<span class="status-badge created">Created</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Payment Processing Screen')">
+							<div class="card-title">4. Payment Processing Screen</div>
+							<div class="card-description">Cash, card, and payment gateway integration</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Receipt Preview/Print Screen')">
+							<div class="card-title">5. Receipt Preview/Print Screen</div>
+							<div class="card-description">Receipt customization and printing</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- Menu Management -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">🍽️</div>
+						Menu Management
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('Menu Management Dashboard')">
+							<div class="card-title">6. Menu Management Dashboard</div>
+							<div class="card-description">Overview of all menus</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Menu Item Creation/Edit Form')">
+							<div class="card-title">7. Menu Item Creation/Edit Form</div>
+							<div class="card-description">Add/edit individual items</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Menu Category Management')">
+							<div class="card-title">8. Menu Category Management</div>
+							<div class="card-description">Organize menu categories</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Modifier Management Screen')">
+							<div class="card-title">9. Modifier Management Screen</div>
+							<div class="card-description">Setup modifiers (extra cheese, no onions)</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Multiple Menu Setup')">
+							<div class="card-title">10. Multiple Menu Setup</div>
+							<div class="card-description">Breakfast/lunch/dinner menu configuration</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- Table Management -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">🪑</div>
+						Table Management
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('Floor Plan View')">
+							<div class="card-title">11. Floor Plan View</div>
+							<div class="card-description">Visual table layout and status</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Table Status Management')">
+							<div class="card-title">12. Table Status Management</div>
+							<div class="card-description">Occupied/available/reserved status</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Table Assignment Screen')">
+							<div class="card-title">13. Table Assignment Screen</div>
+							<div class="card-description">Assign servers to tables</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- Sales Reporting -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">📊</div>
+						Sales Reporting
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('Sales Reports Dashboard')">
+							<div class="card-title">14. Sales Reports Dashboard</div>
+							<div class="card-description">Daily/weekly sales overview</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Report Generation Screen')">
+							<div class="card-title">15. Report Generation Screen</div>
+							<div class="card-description">Generate and export reports</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Sales Analytics View')">
+							<div class="card-title">16. Sales Analytics View</div>
+							<div class="card-description">Basic sales metrics and charts</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- Customer Management -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">👥</div>
+						Customer Management
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('Customer Profile Creation')">
+							<div class="card-title">17. Customer Profile Creation</div>
+							<div class="card-description">Add new customer</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Customer Profile View')">
+							<div class="card-title">18. Customer Profile View</div>
+							<div class="card-description">View customer details and order history</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Customer Search/List')">
+							<div class="card-title">19. Customer Search/List</div>
+							<div class="card-description">Browse all customers</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- System Settings -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">⚙️</div>
+						System Settings
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('General Settings')">
+							<div class="card-title">20. General Settings</div>
+							<div class="card-description">System configuration</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Tax Configuration')">
+							<div class="card-title">21. Tax Configuration</div>
+							<div class="card-description">Setup tax rates and calculations</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('User Role Management')">
+							<div class="card-title">22. User Role Management</div>
+							<div class="card-description">Manage staff permissions</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Backup Settings')">
+							<div class="card-title">23. Backup Settings</div>
+							<div class="card-description">Data backup configuration</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+				
+				<!-- Mobile/Responsive Views -->
+				<section class="screen-section">
+					<h2 class="section-title">
+						<div class="section-icon">📱</div>
+						Mobile/Responsive Views
+					</h2>
+					<div class="screen-grid">
+						<a href="#" class="screen-card" onclick="showScreen('Mobile POS Interface')">
+							<div class="card-title">24. Mobile POS Interface</div>
+							<div class="card-description">Tablet-optimized order taking</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+						<a href="#" class="screen-card" onclick="showScreen('Mobile Payment Screen')">
+							<div class="card-title">25. Mobile Payment Screen</div>
+							<div class="card-description">Touch-friendly payment processing</div>
+							<span class="status-badge pending">Pending</span>
+						</a>
+					</div>
+				</section>
+			</main>
+			
+			<footer class="footer">
+				<div class="stats-bar">
+					<div class="stat-item">
+						<div class="stat-number">25</div>
+						<div class="stat-label">Total Screens</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">2</div>
+						<div class="stat-label">Created</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">23</div>
+						<div class="stat-label">Pending</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">8%</div>
+						<div class="stat-label">Complete</div>
+					</div>
+				</div>
+				<p>Restaurant Management System MVP - Wireframe Collection | Click any screen to view details</p>
+			</footer>
+		</div>
 
-    <script>
-        function showScreen(screenName) {
-            alert(`Wireframe for "${screenName}" will be created here.\n\nThis would navigate to the specific wireframe or show more details about this screen.`);
-            
-            // Update the status to show it's been viewed
-            event.target.querySelector('.status-badge').textContent = 'Viewed';
-            event.target.querySelector('.status-badge').classList.add('created');
-        }
+		<script>
+			function showScreen(screenName) {
+				alert(`Wireframe for "${screenName}" will be created here.\n\nThis would navigate to the specific wireframe or show more details about this screen.`);
+				
+				// Update the status to show it's been viewed
+				event.target.querySelector('.status-badge').textContent = 'Viewed';
+				event.target.querySelector('.status-badge').classList.add('created');
+			}
 
-        // Add some hover effects and interactivity
-        document.querySelectorAll('.screen-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
-</body>
-</html>
+			// Add some hover effects and interactivity
+			document.querySelectorAll('.screen-card').forEach(card => {
+				card.addEventListener('mouseenter', function() {
+					this.style.transform = 'translateY(-3px)';
+				});
+				
+				card.addEventListener('mouseleave', function() {
+					this.style.transform = 'translateY(0)';
+				});
+			});
+		</script>
+	</body>
+	</html>
